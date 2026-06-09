@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mollywood Hub</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#0f0f0f;
+            color:white;
+        }
+
+        /* Navbar */
+
+        nav{
+            background:#111;
+            padding:15px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            box-shadow:0 0 15px rgba(255,0,0,0.4);
+        }
+
+        nav h1{
+            color:red;
+            font-size:35px;
+            animation:glow 2s infinite alternate;
+        }
+
+        nav ul{
+            display:flex;
+            list-style:none;
+            gap:25px;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:red;
+        }
+
+        @keyframes glow{
+            from{
+                text-shadow:0 0 10px red;
+            }
+
+            to{
+                text-shadow:0 0 25px red;
+            }
+        }
+
+        /* Hero */
+
+        .hero{
+            height:100vh;
+            background:
+            linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+            url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1400&auto=format&fit=crop');
+
+            background-size:cover;
+            background-position:center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+
+        .hero-content{
+            animation:fadeIn 2s ease;
+        }
+
+        .hero-content h2{
+            font-size:70px;
+            color:red;
+        }
+
+        .hero-content p{
+            margin-top:20px;
+            font-size:24px;
+        }
+
+        .hero-content button{
+            margin-top:30px;
+            padding:15px 35px;
+            border:none;
+            background:red;
+            color:white;
+            font-size:18px;
+            border-radius:30px;
+            cursor:pointer;
+            transition:0.4s;
+        }
+
+        .hero-content button:hover{
+            background:white;
+            color:red;
+            transform:scale(1.1);
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        /* Movie Cards */
+
+        .movie-info-section{
+            padding:80px 40px;
+        }
+
+        .movie-info-section h2{
+            text-align:center;
+            color:red;
+            font-size:50px;
+            margin-bottom:50px;
+        }
+
+        .info-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:35px;
+        }
+
+        .info-card{
+            background:#1c1c1c;
+            border-radius:20px;
+            overflow:hidden;
+            transition:0.5s;
+            box-shadow:0 5px 20px rgba(255,0,0,0.3);
+        }
+
+        .info-card:hover{
+            transform:translateY(-10px) scale(1.03);
+        }
+
+        .info-card img{
+            width:100%;
+            height:420px;
+            object-fit:cover;
+        }
+
+        .info-content{
+            padding:25px;
+        }
+
+        .info-content h3{
+            color:red;
+            margin-bottom:15px;
+            font-size:32px;
+        }
+
+        .info-content p{
+            margin-bottom:12px;
+            line-height:1.7;
+        }
+
+        .info-content a{
+            display:inline-block;
+            margin-top:15px;
+            background:red;
+            color:white;
+            padding:12px 22px;
+            border-radius:25px;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        .info-content a:hover{
+            background:white;
+            color:red;
+        }
+
+        /* About */
+
+        .about-section{
+            height:100vh;
+            background:black;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .about-overlay{
+            text-align:center;
+            animation:lightGlow 2s infinite alternate;
+        }
+
+        .about-overlay h1{
+            font-size:100px;
+            letter-spacing:10px;
+        }
+
+        .about-overlay p{
+            font-size:30px;
+            margin-top:20px;
+            color:red;
+        }
+
+        @keyframes lightGlow{
+
+            from{
+                text-shadow:
+                0 0 10px white,
+                0 0 20px red,
+                0 0 30px red;
+            }
+
+            to{
+                text-shadow:
+                0 0 20px white,
+                0 0 40px red,
+                0 0 60px red;
+            }
+        }
+
+        /* Footer */
+
+        footer{
+            background:#111;
+            text-align:center;
+            padding:20px;
+            color:#aaa;
+        }
+
+        /* Creator */
+
+        .creator{
+            position:fixed;
+            left:15px;
+            bottom:15px;
+            background:red;
+            color:white;
+            padding:10px 20px;
+            border-radius:30px;
+            box-shadow:0 0 15px rgba(255,0,0,0.6);
+            animation:pulse 2s infinite;
+        }
+
+        @keyframes pulse{
+
+            0%{
+                transform:scale(1);
+            }
+
+            50%{
+                transform:scale(1.08);
+            }
+
+            100%{
+                transform:scale(1);
+            }
+        }
+
+        /* Modern About Section */
+
+.about-section{
+    min-height:100vh;
+    background:#0b0b0b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    overflow:hidden;
+}
+
+.about-card{
+    position:relative;
+    width:950px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    border-radius:30px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    box-shadow:0 0 40px rgba(255,0,0,0.3);
+    animation:cardFloat 4s ease-in-out infinite;
+}
+
+.about-card:hover{
+    transform:scale(1.02);
+    transition:0.5s;
+}
+
+.about-image{
+    width:45%;
+    overflow:hidden;
+}
+
+.about-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.about-card:hover .about-image img{
+    transform:scale(1.08);
+}
+
+.about-content{
+    width:55%;
+    padding:50px;
+    z-index:2;
+}
+
+.about-content h1{
+    font-size:65px;
+    color:white;
+    margin-bottom:10px;
+    animation:textGlow 2s infinite alternate;
+}
+
+.about-content h2{
+    color:red;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    color:#ddd;
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.about-content button{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    background:red;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.about-content button:hover{
+    background:white;
+    color:red;
+    transform:scale(1.08);
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,0,0,0.2);
+    animation:moveCircle 6s infinite alternate;
+}
+
+.circle.one{
+    width:220px;
+    height:220px;
+    top:-60px;
+    right:-60px;
+}
+
+.circle.two{
+    width:180px;
+    height:180px;
+    bottom:-50px;
+    left:-50px;
+}
+
+@keyframes textGlow{
+
+    from{
+        text-shadow:
+        0 0 10px white,
+        0 0 20px red;
+    }
+
+    to{
+        text-shadow:
+        0 0 20px white,
+        0 0 40px red;
+    }
+}
+
+@keyframes cardFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+@keyframes moveCircle{
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(20px);
+    }
+}
+
+/* Mobile Responsive */
+
+@media(max-width:900px){
+
+    .about-card{
+        flex-direction:column;
+    }
+
+    .about-image{
+        width:100%;
+        height:350px;
+    }
+
+    .about-content{
+        width:100%;
+        text-align:center;
+    }
+
+    .about-content h1{
+        font-size:45px;
+    }
+}
+
+.info-card img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    display:block;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+
+        <h1>Mollywood Hub</h1>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#movies">Movies</a></li>
+
+            <li><a href="#about">About</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Hero -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h2>Malayalam Movies</h2>
+
+            <p>
+                Watch Latest Malayalam Movies & Explore Mollywood Legends
+            </p>
+
+            <button onclick="showMessage()">
+                Explore Now
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Movies -->
+
+    <section class="movie-info-section" id="movies">
+
+        <h2>Malayalam Movie Collection</h2>
+
+        <div class="info-container">
+
+            <!-- Drishyam -->
+
+            <div class="info-card">
+
+                <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1200&auto=format&fit=crop">
+
+                <div class="info-content">
+
+                    <h3>Drishyam</h3>
+
+                    <p>Actor: Mohanlal</p>
+
+                    <p>Director: Jeethu Joseph</p>
+
+                    <p>Year: 2013</p>
+
+                    <p>
+                        Crime thriller movie loved across India.
+                    </p>
+
+                    <a href="https://www.youtube.com/results?search_query=Drishyam+Trailer" target="_blank">
+                        Watch Trailer
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Lucifer -->
+
+            <div class="info-card">
+
+               <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop">
+
+
+                <div class="info-content">
+
+                    <h3>Lucifer</h3>
+
+                    <p>Actor: Mohanlal</p>
+
+                    <p>Director: Prithviraj</p>
+
+                    <p>Year: 2019</p>
+
+                    <p>
+                        Political action thriller with mass scenes.
+                    </p>
+
+                    <a href="https://www.youtube.com/results?search_query=Lucifer+Trailer" target="_blank">
+                        Watch Trailer
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Premam -->
+
+            <div class="info-card">
+
+                <img src="https://images.unsplash.com/photo-1460881680858-30d872d5b530?q=80&w=1200&auto=format&fit=crop">
+
+                <div class="info-content">
+
+                    <h3>Premam</h3>
+
+                    <p>Actor: Nivin Pauly</p>
+
+                    <p>Director: Alphonse Puthren</p>
+
+                    <p>Year: 2015</p>
+
+                    <p>
+                        Romantic blockbuster loved by youth.
+                    </p>
+
+                    <a href="https://www.youtube.com/results?search_query=Premam+Trailer" target="_blank">
+                        Watch Trailer
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Bangalore Days -->
+
+            <div class="info-card">
+
+                <img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?q=80&w=1200&auto=format&fit=crop">
+                <div class="info-content">
+
+                    <h3>Bangalore Days</h3>
+
+                    <p>Actor: Dulquer Salmaan</p>
+
+                    <p>Director: Anjali Menon</p>
+
+                    <p>Year: 2014</p>
+
+                    <p>
+                        Friendship and emotional drama movie.
+                    </p>
+
+                    <a href="https://www.youtube.com/results?search_query=Bangalore+Days+Trailer" target="_blank">
+                        Watch Trailer
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Manjummel Boys -->
+
+            <div class="info-card">
+
+                <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1200&auto=format&fit=crop">
+
+                <div class="info-content">
+
+                    <h3>Manjummel Boys</h3>
+
+                    <p>Actor: Soubin Shahir</p>
+
+                    <p>Director: Chidambaram</p>
+
+                    <p>Year: 2024</p>
+
+                    <p>
+                        Adventure survival thriller based on true events.
+                    </p>
+
+                    <a href="https://www.youtube.com/results?search_query=Manjummel+Boys+Trailer" target="_blank">
+                        Watch Trailer
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Aavesham -->
+
+            <div class="info-card">
+
+                <img src="https://images.unsplash.com/photo-1460881680858-30d872d5b530?q=80&w=1200&auto=format&fit=crop">
+                <div class="info-content">
+
+                    <h3>Aavesham</h3>
+
+                    <p>Actor: Fahadh Faasil</p>
+
+                    <p>Director: Jithu Madhavan</p>
+
+                    <p>Year: 2024</p>
+
+                    <p>
+                        Action comedy entertainer with powerful performance.
+                    </p>
+
+                    <a href="https://www.youtube.com/results?search_query=Aavesham+Trailer" target="_blank">
+                        Watch Trailer
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Romancham -->
+
+<div class="info-card">
+
+   <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop">
+    <div class="info-content">
+
+        <h3>Romancham</h3>
+
+        <p>Actor: Soubin Shahir</p>
+
+        <p>Director: Jithu Madhavan</p>
+
+        <p>Year: 2023</p>
+
+        <p>
+            Horror comedy movie inspired by real-life events.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Romancham+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Kannur Squad -->
+
+<div class="info-card">
+
+  <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1200&auto=format&fit=crop">
+    <div class="info-content">
+
+        <h3>Kannur Squad</h3>
+
+        <p>Actor: Mammootty</p>
+
+        <p>Director: Roby Varghese Raj</p>
+
+        <p>Year: 2023</p>
+
+        <p>
+            Investigation thriller based on police operations.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Kannur+Squad+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+<!-- 2018 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1200&auto=format&fit=crop">
+
+<!-- Movie Camera -->
+
+    <div class="info-content">
+
+        <h3>2018</h3>
+
+        <p>Actor: Tovino Thomas</p>
+
+        <p>Director: Jude Anthany Joseph</p>
+
+        <p>Year: 2023</p>
+
+        <p>
+            Emotional survival drama based on Kerala floods.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=2018+Malayalam+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Malik -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1460881680858-30d872d5b530?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Malik</h3>
+
+        <p>Actor: Fahadh Faasil</p>
+
+        <p>Director: Mahesh Narayanan</p>
+
+        <p>Year: 2021</p>
+
+        <p>
+            Political crime drama with powerful storytelling.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Malik+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 11 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Hridayam</h3>
+
+        <p>Actor: Pranav Mohanlal</p>
+
+        <p>Director: Vineeth Sreenivasan</p>
+
+        <p>Year: 2022</p>
+
+        <p>
+            Feel-good romantic musical entertainer.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Hridayam+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 12 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Minnal Murali</h3>
+
+        <p>Actor: Tovino Thomas</p>
+
+        <p>Director: Basil Joseph</p>
+
+        <p>Year: 2021</p>
+
+        <p>
+            Malayalam superhero movie with action and comedy.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Minnal+Murali+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 13 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Charlie</h3>
+
+        <p>Actor: Dulquer Salmaan</p>
+
+        <p>Director: Martin Prakkat</p>
+
+        <p>Year: 2015</p>
+
+        <p>
+            Adventure romantic drama with beautiful storytelling.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Charlie+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+
+    </div>
+
+</div>
+
+<!-- Movie Card 14 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Kumbalangi Nights</h3>
+
+        <p>Actor: Shane Nigam</p>
+
+        <p>Director: Madhu C Narayanan</p>
+
+        <p>Year: 2019</p>
+
+        <p>
+            Emotional family drama loved by audiences.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Kumbalangi+Nights+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 15 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Uyare</h3>
+
+        <p>Actor: Parvathy Thiruvothu</p>
+
+        <p>Director: Manu Ashokan</p>
+
+        <p>Year: 2019</p>
+
+        <p>
+            Inspiring emotional drama about courage and dreams.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Uyare+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 16 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Android Kunjappan</h3>
+
+        <p>Actor: Suraj Venjaramoodu</p>
+
+        <p>Director: Ratheesh Balakrishnan</p>
+
+        <p>Year: 2019</p>
+
+        <p>
+            Sci-fi comedy drama with emotional storytelling.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Android+Kunjappan+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 17 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Thallumaala</h3>
+
+        <p>Actor: Tovino Thomas</p>
+
+        <p>Director: Khalid Rahman</p>
+
+        <p>Year: 2022</p>
+
+        <p>
+            Stylish action comedy with vibrant visuals.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Thallumaala+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+
+    </div>
+
+</div>
+
+<!-- Movie Card 18 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1460881680858-30d872d5b530?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Jana Gana Mana</h3>
+
+        <p>Actor: Prithviraj Sukumaran</p>
+
+        <p>Director: Dijo Jose Antony</p>
+
+        <p>Year: 2022</p>
+
+        <p>
+            Powerful courtroom political thriller movie.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Jana+Gana+Mana+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+
+    </div>
+
+</div>
+
+<!-- Movie Card 19 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Virus</h3>
+
+        <p>Actor: Kunchacko Boban</p>
+
+        <p>Director: Aashiq Abu</p>
+
+        <p>Year: 2019</p>
+
+        <p>
+            Medical thriller based on Nipah virus outbreak.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Virus+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 20 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Rorschach</h3>
+
+        <p>Actor: Mammootty</p>
+
+        <p>Director: Nissam Basheer</p>
+
+        <p>Year: 2022</p>
+
+        <p>
+            Dark psychological thriller with mystery elements.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Rorschach+Malayalam+Trailer" target="_blank">
+    Watch Trailer
+</a>
+
+
+    </div>
+
+</div>
+
+<!-- Movie Card 21 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>ARM</h3>
+
+        <p>Actor: Tovino Thomas</p>
+
+        <p>Director: Jithin Laal</p>
+
+        <p>Year: 2024</p>
+
+        <p>
+            Fantasy action adventure movie with powerful visuals.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=ARM+Malayalam+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 22 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>King of Kotha</h3>
+
+        <p>Actor: Dulquer Salmaan</p>
+
+        <p>Director: Abhilash Joshiy</p>
+
+        <p>Year: 2023</p>
+
+        <p>
+            Stylish gangster action drama movie.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=King+of+Kotha+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 23 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Neelavelicham</h3>
+
+        <p>Actor: Tovino Thomas</p>
+
+        <p>Director: Aashiq Abu</p>
+
+        <p>Year: 2023</p>
+
+        <p>
+            Horror fantasy movie based on Vaikom Muhammad Basheer story.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Neelavelicham+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 24 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Neru</h3>
+
+        <p>Actor: Mohanlal</p>
+
+        <p>Director: Jeethu Joseph</p>
+
+        <p>Year: 2023</p>
+
+        <p>
+            Courtroom drama thriller with emotional storytelling.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Neru+Malayalam+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Movie Card 25 -->
+
+<div class="info-card">
+
+    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="info-content">
+
+        <h3>Ozler</h3>
+
+        <p>Actor: Jayaram</p>
+
+        <p>Director: Midhun Manuel Thomas</p>
+
+        <p>Year: 2024</p>
+
+        <p>
+            Crime investigation thriller movie.
+        </p>
+
+        <a href="https://www.youtube.com/results?search_query=Ozler+Trailer" target="_blank">
+            Watch Trailer
+        </a>
+
+    </div>
+
+</div>
+
+    </section>
+
+    <!-- About -->
+
+  <!-- About Section -->
+
+<section class="about-section" id="about">
+
+    <div class="about-card">
+
+        <div class="about-image">
+
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1400&auto=format&fit=crop">
+
+        </div>
+
+        <div class="about-content">
+
+            <h1>SAMVEDH.A</h1>
+
+            <h2>Creator of Mollywood Hub</h2>
+
+            <p>
+                Passionate creator of Malayalam movie websites and cinematic web designs.
+                Loves Mollywood movies, animations, technology, and creative coding in VS Code.
+            </p>
+
+            <button>
+                Mollywood Designer
+            </button>
+
+        </div>
+
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+
+    </div>
+
+</section>
+</section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Mollywood Hub | Created in VS Code
+        </p>
+
+    </footer>
+
+    <!-- Creator -->
+
+    <div class="creator">
+        Created by SAMVEDH.A
+    </div>
+
+    <script>
+
+        function showMessage(){
+
+            alert("Welcome to Mollywood Hub!");
+
+        }
+
+    </script>
+    
+
+</body>
+
+</html>
